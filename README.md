@@ -1,5 +1,7 @@
 # 📝 **JADH2025 poster production and TikZ layout summary**
 
+[Japanese](README-ja.md) | [English](README.md)
+
 ## 📂 **Repository Structure**
 
 ```
