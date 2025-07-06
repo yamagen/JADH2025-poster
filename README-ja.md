@@ -1,4 +1,4 @@
-# 📝 **JADH2025ポスター制作・TikZレイアウトまとめ**
+# 📝 **JADH2025ポスター・TikZレイアウト**
 
 [Japanese](README-ja.md) | [English](README.md)
 

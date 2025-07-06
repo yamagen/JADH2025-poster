@@ -1,4 +1,4 @@
-# 📝 **JADH2025 poster production and TikZ layout summary**
+# 📝 **JADH2025 poster and TikZ layout**
 
 [Japanese](README-ja.md) | [English](README.md)
 
