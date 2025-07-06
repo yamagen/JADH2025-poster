@@ -41,6 +41,7 @@ JADH2025-poster/
 ```latex
 \usepackage{fontspec}
 \setmainfont{Noto Sans}
+\newfontfamily\jpfont{Noto Sans CJK JP}
 ```
 
 → スケーラブルフォントで大きな文字も警告なし
