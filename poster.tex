@@ -4,6 +4,7 @@
 \documentclass{article}
 \usepackage[paperwidth=84.1cm, paperheight=118.9cm, margin=0cm]{geometry}
 \usepackage{tikz}
+\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{fontspec}
 
@@ -97,7 +98,7 @@ Background Image courtesy of the Museum of Fine Arts, Boston; Public Domain
 \node[
   anchor=north,
   align=center,
-  text=mydeepblue,
+  text=blue!80!black,
   font=\fontsize{60pt}{70pt}\bfseries
 ] at ([yshift=-5cm]current page.north) {
   A Bilingual and Structured Approach to Classical Japanese Narratives
@@ -186,8 +187,13 @@ The University of Osaka
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
 ] at ([xshift=4cm, yshift=-80cm]current page.north west) {
-  \textbf{\fontsize{40pt}{30pt}\selectfont Resources}\\[1em]
-  \textcolor{katanoBrown}{Zenodo repository: \texttt{https://zenodo.org/record/1234567}}\\
+  \textbf{\fontsize{40pt}{30pt}\selectfont References}\\[1em]
+  - Yamamoto, H. (2025). Process Grammar Model (v1.0.11). Zenodo. 
+  \href{https://doi.org/10.5281/zenodo.15613134}{
+    \texttt{https://doi.org/10.5281/zenodo.15613134}
+    \includegraphics[height=0.9cm]{images/zenodo.15613134.png}
+  }
+
 };
 
 
