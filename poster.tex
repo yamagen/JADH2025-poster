@@ -71,7 +71,7 @@
 \node[
   anchor=north west,
   align=left,
-  color=blue,
+  color=katanoMediumPurple,
   font=\fontsize{20pt}{20pt}\bfseries
 ] at ([xshift=1cm,yshift=2cm]current page.south west) {
 \ifENG
@@ -83,32 +83,27 @@ Background Image courtesy of the Museum of Fine Arts, Boston; Public Domain
 \fi
 };
 
-% ここに他のノードを追加
-
-
-% タイトル
+% Title
 \node[
   anchor=north,
   align=center,
-%  color=mydeepblue, 
-%  text=katanoPurple,
-  text=katanoBlueViolet,
+  text=blue!80!black,
   font=\fontsize{60pt}{70pt}\bfseries
 ] at ([yshift=-2cm]current page.north) {
   Translating Ise Monogatari through the Lens of Process Grammar Model
 };
 
-% サブタイトル
+% Subtitle
 \node[
   anchor=north,
   align=center,
-  text=katanoBlueViolet,
+  text=mydeepblue,
   font=\fontsize{60pt}{70pt}\bfseries
 ] at ([yshift=-5cm]current page.north) {
   A Bilingual and Structured Approach to Classical Japanese Narratives
 };
 
-% 著者
+% Authors
 \node[
   anchor=north,
   align=center,
@@ -136,43 +131,66 @@ The University of Osaka
 
 % 左上テキストボックス
 \node[
-  draw,
+  draw=katanoBlue,
+  line width=3pt,
+  inner sep=10mm, 
   anchor=north west,
-  text width=40cm,
+  text width=35cm,
   align=left,
-  text=katanoBlue,
-  text=katanoBlueViolet,
+  text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=3cm,yshift=-15cm]current page.north west) {
+] at ([xshift=4cm,yshift=-15cm]current page.north west) {
   \textbf{\fontsize{40pt}{30pt}\selectfont Background}\\[1em]
   \textcolor{katanoBrown}{This section describes the background of the research...}
 };
 
 % 右上テキストボックス
 \node[
-  draw,
+  draw=katanoBlue,
+  line width=3pt,
+  inner sep=10mm, 
   anchor=north east,
-  text width=40cm,
+  text width=35cm,
   align=left,
-  text=katanoBlueViolet,
+  text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=0cm,yshift=-15cm]current page.north east) {
+] at ([xshift=-3cm,yshift=-15cm]current page.north east) {
   \textbf{\fontsize{40pt}{30pt}\selectfont Methods}\\[1em]
   \textcolor{katanoBrown}{Here you explain your methods in detail...}
 };
 
 % 中央下テキスト
 \node[
-  draw,
-  anchor=north,
-  text width=70cm,
+  draw=katanoBlue,
+  line width=3pt,
+  inner sep=10mm, 
+  anchor=north west,
+  text width=75cm,
   align=left,
-  text=katanoBlueViolet,
+  text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([yshift=-65cm]current page.north) {
+] at ([xshift=4cm, yshift=-40cm]current page.north west) {
   \textbf{\fontsize{40pt}{30pt}\selectfont Results and Conclusion}\\[1em]
   \textcolor{katanoBrown}{Summarize the results and main findings here...}
 };
+
+
+% 中央下右テキスト
+\node[
+  draw=katanoBlue,
+  line width=3pt,
+  inner sep=10mm, 
+  anchor=north west,
+  text width=75cm,
+  align=left,
+  text=mydeepblue,
+  font=\fontsize{30pt}{20pt}\bfseries
+] at ([xshift=4cm, yshift=-80cm]current page.north west) {
+  \textbf{\fontsize{40pt}{30pt}\selectfont Resources}\\[1em]
+  \textcolor{katanoBrown}{Zenodo repository: \texttt{https://zenodo.org/record/1234567}}\\
+};
+
+
 
 % ロゴ（右下）
 \node[
