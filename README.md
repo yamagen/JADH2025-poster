@@ -2,6 +2,8 @@
 
 [Japanese](README-ja.md) | [English](README.md)
 
+Conference: [JADH2025](https://jadh2025.hmt.osaka-u.ac.jp/)
+
 ## 📂 **Repository Structure**
 
 ```
