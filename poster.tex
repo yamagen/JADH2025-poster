@@ -1,0 +1,263 @@
+\newif\ifENG
+\ENGtrue % 英語版を使用する場合はtrue、和文版を使用する場合はfalseに設定
+
+\documentclass{article}
+\usepackage[paperwidth=84.1cm, paperheight=118.9cm, margin=0cm]{geometry}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{fontspec}
+
+% 色の定義
+\definecolor{mydeepblue}{HTML}{332E83}
+
+% 背景用
+\definecolor{deepBackground}{HTML}{332E83} % 深い藍（背景など）
+\definecolor{softGray}{HTML}{CCCCCC}       % 淡い灰色（背景補助）
+\definecolor{lightIvory}{HTML}{F8F5E1}     % 生成的な淡ベージュ
+
+% タイトル・見出し用
+\definecolor{katanoPurple}{HTML}{4B0082}   % 目立つ紫
+\definecolor{katanoBlue}{HTML}{4466CC}     % 明るい青
+\definecolor{katanoIndigo}{HTML}{3A4F92}   % 落ち着いた藍
+\definecolor{katanoBrown}{HTML}{5C4033}    % 和風の焦げ茶
+
+% 本文用
+\definecolor{katanoTextGray}{HTML}{333333} % 濃い灰（本文）
+
+
+
+
+\setmainfont{Noto Sans}
+\newfontfamily\jpfont{Noto Sans CJK JP}
+
+%\setmainfont{Noto Sans CJK JP} % 日本語フォントを指定
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture, overlay]
+
+% 背景色
+%\fill[blue] (current page.south west) rectangle (current page.north east);
+
+% 背景画像（使う場合コメントアウトを外す）
+%\node[anchor=south west, inner sep=0] at (current page.south west) {
+%  \includegraphics[width=\paperwidth,height=\paperheight]{background.jpg}
+%};
+
+% 背景画像をページ全面に敷く
+\node[
+  anchor=south west,
+  inner sep=0,
+  opacity=0.2, % 透明度を設定
+] at (current page.south west) {
+  \includegraphics[width=\paperwidth,height=\paperheight]{
+%  ise-katano.jpg
+    yatsuhashi.jpg
+}
+};
+
+% 画像の著作権
+\node[
+  anchor=north west,
+  align=left,
+  color=blue,
+  font=\fontsize{20pt}{20pt}\bfseries
+] at ([xshift=1cm,yshift=2cm]current page.south west) {
+\ifENG
+% Background: Katano; Admiring the Scattered Cherry Blossoms
+Background Image courtesy of the Museum of Fine Arts, Boston; Public Domain
+%  \jpfont{画像提供：\textbf{いせかたの}（伊勢物語のカタノ）}
+\else
+画像出典：ボストン美術館（パブリックドメイン）
+\fi
+};
+
+% ここに他のノードを追加
+
+
+% タイトル
+\node[
+  anchor=north,
+  align=center,
+%  color=mydeepblue, 
+%  text=katanoPurple,
+  text=katanoBlue,
+  font=\fontsize{60pt}{70pt}\bfseries
+] at ([yshift=-2cm]current page.north) {
+  Translating Ise Monogatari through the Lens of Process Grammar Model
+};
+
+% サブタイトル
+\node[
+  anchor=north,
+  align=center,
+  font=\fontsize{60pt}{70pt}\bfseries
+] at ([yshift=-5cm]current page.north) {
+  A Bilingual and Structured Approach to Classical Japanese Narratives
+};
+
+% 著者
+\node[
+  anchor=north,
+  align=center,
+  font=\fontsize{50pt}{40pt}\bfseries
+] at ([yshift=-8cm]current page.north) {
+Hilofumi Yamamoto{\raisebox{1.5ex}{\fontsize{20pt}{20pt}\selectfont 1}}
+\quad
+Bor Hodošček{\raisebox{1.5ex}{\fontsize{20pt}{20pt}\selectfont 2}}
+\quad
+Xudong Chen{\raisebox{1.5ex}{\fontsize{20pt}{20pt}\selectfont 1}}
+};
+
+% 所属
+\node[
+  anchor=north,
+  align=center,
+  font=\fontsize{40pt}{30pt}\bfseries
+] at ([yshift=-11cm]current page.north) {
+{\raisebox{1.5ex}{\fontsize{20pt}{20pt}\selectfont 1}}
+Institute of Science Tokyo
+\quad
+{\raisebox{1.5ex}{\fontsize{20pt}{20pt}\selectfont 2}}
+The University of Osaka
+};
+
+
+% 左上テキストボックス
+\node[
+  anchor=north west,
+  text width=35cm,
+  align=left,
+  color=blue,
+  font=\Large
+] at ([xshift=2cm,yshift=-12cm]current page.north west) {
+  \textbf{Background}\\[1em]
+  This section describes the background of the research...
+};
+
+% 右上テキストボックス
+\node[
+  anchor=north east,
+  text width=35cm,
+  align=left,
+  color=blue,
+  font=\Large
+] at ([xshift=-2cm,yshift=-12cm]current page.north east) {
+  \textbf{Methodology}\\[1em]
+  Here you explain your methods in detail...
+};
+
+% 中央下テキスト
+\node[
+  anchor=north,
+  text width=70cm,
+  align=left,
+  color=blue,
+  font=\Large
+] at ([yshift=-65cm]current page.north) {
+  \textbf{Results and Conclusion}\\[1em]
+  Summarize the results and main findings here...
+};
+
+% ロゴ（右下）
+\node[
+  anchor=south east
+] at ([xshift=-1cm,yshift=1cm]current page.south east) {
+  \includegraphics[height=7cm]{sciencetokyo.png}
+  \includegraphics[trim=30 30 30 30, clip, height=7cm]{theUnivOsaka.jpg}
+};
+
+\end{tikzpicture}
+
+\end{document}
+
+
+
+\documentclass[a0]{beamer}
+\usepackage[size=a0,scale=1.2,orientation=portrait]{beamerposter}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations.pathmorphing}
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+%\setmainjfont{IPAexGothic}
+\setmainjfont{Noto Sans CJK JP}
+
+
+
+
+\title{Translating Ise Monogatari through the Lens of Process Grammar Model: A Bilingual and Structured Approach to Classical Japanese Narratives}
+\author{Hilofumi Yamamoto$^1$ \and Bor Hodošček$^2$ \and Xudong Chen$^1$}
+\institute{Institute of Science Tokyo \and The University of Osaka \and Institute of Science Tokyo}
+\date{2025}
+
+
+\setbeamercolor{title}{fg=white,bg=blue}
+\setbeamerfont{title}{series=\bfseries}
+
+\begin{document}
+\begin{frame}[t]
+
+
+\institute{Institute of Science Tokyo \and The University of Osaka \and Institute of Science Tokyo}
+\date{2025}
+
+
+\setbeamercolor{title}{fg=white,bg=blue}
+\setbeamerfont{title}{series=\bfseries}
+
+\begin{document}
+\begin{frame}[t]
+
+
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate (base) at (current page.south west);
+\node at (current page.center) {\Huge \textcolor{red}{$\rightarrow$}};
+\node at (10cm,-10cm) {ここに置く};
+\node at ([xshift=15cm,yshift=20cm] base) {左下基準でここ};
+\node at ([xshift=11cm,yshift=11cm] base) {\Huge \textcolor{red}{(0,0)}};
+\end{tikzpicture}
+
+\begin{beamercolorbox}[wd=\textwidth,sep=1em,center]{title}
+
+{\fontsize{64pt}{60pt}\selectfont\textbf{Translating Ise Monogatari through the Lens of Process Grammar Model:\\A Bilingual and Structured Approach to Classical Japanese Narratives}}
+\end{beamercolorbox}
+
+
+
+\begin{beamercolorbox}[wd=\textwidth,sep=0.5em,center]{author}
+{\Large
+Hilofumi Yamamoto\textsuperscript{1}
+\quad
+Bor Hodošček\textsuperscript{2}
+\quad
+Xudong Chen\textsuperscript{1}
+}
+\end{beamercolorbox}
+
+\begin{beamercolorbox}[wd=\textwidth,sep=0.5em,center]{institute}
+{\large
+\textsuperscript{1} Institute of Science Tokyo
+\quad
+\textsuperscript{2} The University of Osaka
+}
+\end{beamercolorbox}
+
+
+\begin{columns}[t]
+
+\begin{column}{0.9\textwidth}
+\begin{beamercolorbox}[wd=\textwidth]{block title}
+縦レイアウトテスト
+\end{beamercolorbox}
+\begin{beamercolorbox}[wd=\textwidth]{block body}
+このポスターはA0縦方向に設定しています。
+PDFビューアで表示すると横向きに見える場合がありますが、印刷時に縦で出力されます。
+\end{beamercolorbox}
+\end{column}
+
+\end{columns}
+
+\end{frame}
+\end{document}
