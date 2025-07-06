@@ -138,13 +138,13 @@ The University of Osaka
 \node[
   draw,
   anchor=north west,
-  text width=35cm,
+  text width=40cm,
   align=left,
   text=katanoBlue,
   text=katanoBlueViolet,
   font=\fontsize{30pt}{20pt}\bfseries
 ] at ([xshift=3cm,yshift=-15cm]current page.north west) {
-  \textbf{Background}\\[1em]
+  \textbf{\fontsize{40pt}{30pt}\selectfont Background}\\[1em]
   \textcolor{katanoBrown}{This section describes the background of the research...}
 };
 
@@ -152,13 +152,13 @@ The University of Osaka
 \node[
   draw,
   anchor=north east,
-  text width=35cm,
+  text width=40cm,
   align=left,
   text=katanoBlueViolet,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=3cm,yshift=-15cm]current page.north east) {
-  \textbf{Methodology}\\[1em]
-  Here you explain your methods in detail...
+] at ([xshift=0cm,yshift=-15cm]current page.north east) {
+  \textbf{\fontsize{40pt}{30pt}\selectfont Methods}\\[1em]
+  \textcolor{katanoBrown}{Here you explain your methods in detail...}
 };
 
 % 中央下テキスト
@@ -170,16 +170,16 @@ The University of Osaka
   text=katanoBlueViolet,
   font=\fontsize{30pt}{20pt}\bfseries
 ] at ([yshift=-65cm]current page.north) {
-  \textbf{Results and Conclusion}\\[1em]
-  Summarize the results and main findings here...
+  \textbf{\fontsize{40pt}{30pt}\selectfont Results and Conclusion}\\[1em]
+  \textcolor{katanoBrown}{Summarize the results and main findings here...}
 };
 
 % ロゴ（右下）
 \node[
   anchor=south east
 ] at ([xshift=-1cm,yshift=1cm]current page.south east) {
-  \includegraphics[height=7cm]{images/sciencetokyo.png}
-  \includegraphics[trim=30 30 30 30, clip, height=7cm]{images/theUnivOsaka.jpg}
+  \includegraphics[height=4cm]{images/sciencetokyo.png}
+  \includegraphics[trim=30 30 30 30, clip, height=4cm]{images/theUnivOsaka.jpg}
 };
 
 \end{tikzpicture}
