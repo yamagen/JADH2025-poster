@@ -21,11 +21,20 @@
 \definecolor{katanoIndigo}{HTML}{3A4F92}   % 落ち着いた藍
 \definecolor{katanoBrown}{HTML}{5C4033}    % 和風の焦げ茶
 
+\definecolor{katanoMediumOrchid}{HTML}{BA55D3} % 明るい紫、ピンクがかる
+\definecolor{katanoMediumPurple}{HTML}{9370DB} % 少し青みが強い
+\definecolor{katanoOrchid}{HTML}{DA70D6}       % さらに明るいピンク寄り
+\definecolor{katanoViolet}{HTML}{EE82EE}       % 淡い紫、明度が高い
+\definecolor{katanoSlateBlue}{HTML}{6A5ACD} % くっきりめ紫
+\definecolor{katanoPurpleStrong}{HTML}{6A5ACD} % SlateBlue系
+
+
+\definecolor{katanoSlateBlue}{HTML}{6A5ACD} % 青紫・視認性良好
+\definecolor{katanoMediumSlateBlue}{HTML}{7B68EE} % やや明るい青紫
+\definecolor{katanoBlueViolet}{HTML}{8A2BE2} % かなり青い鮮やか紫
+
 % 本文用
 \definecolor{katanoTextGray}{HTML}{333333} % 濃い灰（本文）
-
-
-
 
 \setmainfont{Noto Sans}
 \newfontfamily\jpfont{Noto Sans CJK JP}
@@ -54,7 +63,7 @@
 ] at (current page.south west) {
   \includegraphics[width=\paperwidth,height=\paperheight]{
 %  ise-katano.jpg
-    yatsuhashi.jpg
+    images/yatsuhashi.jpg
 }
 };
 
@@ -83,7 +92,7 @@ Background Image courtesy of the Museum of Fine Arts, Boston; Public Domain
   align=center,
 %  color=mydeepblue, 
 %  text=katanoPurple,
-  text=katanoBlue,
+  text=katanoBlueViolet,
   font=\fontsize{60pt}{70pt}\bfseries
 ] at ([yshift=-2cm]current page.north) {
   Translating Ise Monogatari through the Lens of Process Grammar Model
@@ -93,6 +102,7 @@ Background Image courtesy of the Museum of Fine Arts, Boston; Public Domain
 \node[
   anchor=north,
   align=center,
+  text=katanoBlueViolet,
   font=\fontsize{60pt}{70pt}\bfseries
 ] at ([yshift=-5cm]current page.north) {
   A Bilingual and Structured Approach to Classical Japanese Narratives
@@ -124,38 +134,41 @@ Institute of Science Tokyo
 The University of Osaka
 };
 
-
 % 左上テキストボックス
 \node[
+  draw,
   anchor=north west,
   text width=35cm,
   align=left,
-  color=blue,
-  font=\Large
-] at ([xshift=2cm,yshift=-12cm]current page.north west) {
+  text=katanoBlue,
+  text=katanoBlueViolet,
+  font=\fontsize{30pt}{20pt}\bfseries
+] at ([xshift=3cm,yshift=-15cm]current page.north west) {
   \textbf{Background}\\[1em]
-  This section describes the background of the research...
+  \textcolor{katanoBrown}{This section describes the background of the research...}
 };
 
 % 右上テキストボックス
 \node[
+  draw,
   anchor=north east,
   text width=35cm,
   align=left,
-  color=blue,
-  font=\Large
-] at ([xshift=-2cm,yshift=-12cm]current page.north east) {
+  text=katanoBlueViolet,
+  font=\fontsize{30pt}{20pt}\bfseries
+] at ([xshift=3cm,yshift=-15cm]current page.north east) {
   \textbf{Methodology}\\[1em]
   Here you explain your methods in detail...
 };
 
 % 中央下テキスト
 \node[
+  draw,
   anchor=north,
   text width=70cm,
   align=left,
-  color=blue,
-  font=\Large
+  text=katanoBlueViolet,
+  font=\fontsize{30pt}{20pt}\bfseries
 ] at ([yshift=-65cm]current page.north) {
   \textbf{Results and Conclusion}\\[1em]
   Summarize the results and main findings here...
@@ -165,8 +178,8 @@ The University of Osaka
 \node[
   anchor=south east
 ] at ([xshift=-1cm,yshift=1cm]current page.south east) {
-  \includegraphics[height=7cm]{sciencetokyo.png}
-  \includegraphics[trim=30 30 30 30, clip, height=7cm]{theUnivOsaka.jpg}
+  \includegraphics[height=7cm]{images/sciencetokyo.png}
+  \includegraphics[trim=30 30 30 30, clip, height=7cm]{images/theUnivOsaka.jpg}
 };
 
 \end{tikzpicture}
@@ -175,89 +188,3 @@ The University of Osaka
 
 
 
-\documentclass[a0]{beamer}
-\usepackage[size=a0,scale=1.2,orientation=portrait]{beamerposter}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,decorations.pathmorphing}
-\usepackage{luatexja}
-\usepackage{luatexja-fontspec}
-%\setmainjfont{IPAexGothic}
-\setmainjfont{Noto Sans CJK JP}
-
-
-
-
-\title{Translating Ise Monogatari through the Lens of Process Grammar Model: A Bilingual and Structured Approach to Classical Japanese Narratives}
-\author{Hilofumi Yamamoto$^1$ \and Bor Hodošček$^2$ \and Xudong Chen$^1$}
-\institute{Institute of Science Tokyo \and The University of Osaka \and Institute of Science Tokyo}
-\date{2025}
-
-
-\setbeamercolor{title}{fg=white,bg=blue}
-\setbeamerfont{title}{series=\bfseries}
-
-\begin{document}
-\begin{frame}[t]
-
-
-\institute{Institute of Science Tokyo \and The University of Osaka \and Institute of Science Tokyo}
-\date{2025}
-
-
-\setbeamercolor{title}{fg=white,bg=blue}
-\setbeamerfont{title}{series=\bfseries}
-
-\begin{document}
-\begin{frame}[t]
-
-
-\begin{tikzpicture}[remember picture,overlay]
-\coordinate (base) at (current page.south west);
-\node at (current page.center) {\Huge \textcolor{red}{$\rightarrow$}};
-\node at (10cm,-10cm) {ここに置く};
-\node at ([xshift=15cm,yshift=20cm] base) {左下基準でここ};
-\node at ([xshift=11cm,yshift=11cm] base) {\Huge \textcolor{red}{(0,0)}};
-\end{tikzpicture}
-
-\begin{beamercolorbox}[wd=\textwidth,sep=1em,center]{title}
-
-{\fontsize{64pt}{60pt}\selectfont\textbf{Translating Ise Monogatari through the Lens of Process Grammar Model:\\A Bilingual and Structured Approach to Classical Japanese Narratives}}
-\end{beamercolorbox}
-
-
-
-\begin{beamercolorbox}[wd=\textwidth,sep=0.5em,center]{author}
-{\Large
-Hilofumi Yamamoto\textsuperscript{1}
-\quad
-Bor Hodošček\textsuperscript{2}
-\quad
-Xudong Chen\textsuperscript{1}
-}
-\end{beamercolorbox}
-
-\begin{beamercolorbox}[wd=\textwidth,sep=0.5em,center]{institute}
-{\large
-\textsuperscript{1} Institute of Science Tokyo
-\quad
-\textsuperscript{2} The University of Osaka
-}
-\end{beamercolorbox}
-
-
-\begin{columns}[t]
-
-\begin{column}{0.9\textwidth}
-\begin{beamercolorbox}[wd=\textwidth]{block title}
-縦レイアウトテスト
-\end{beamercolorbox}
-\begin{beamercolorbox}[wd=\textwidth]{block body}
-このポスターはA0縦方向に設定しています。
-PDFビューアで表示すると横向きに見える場合がありますが、印刷時に縦で出力されます。
-\end{beamercolorbox}
-\end{column}
-
-\end{columns}
-
-\end{frame}
-\end{document}
