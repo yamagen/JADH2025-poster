@@ -134,4 +134,3 @@ Background Image courtesy of the Museum of Fine Arts, Boston; Public Domain
 
 - Figure and Table Configuration
 - Gridlines to devide sections
--
