@@ -1,42 +1,43 @@
-# 📝 **JADH2025ポスター制作・TikZレイアウトまとめ**
+# 📝 **JADH2025 poster production and TikZ layout summary**
 
-## 📂 **リポジトリ構成**
+## 📂 **Repository Structure**
 
 ```
 JADH2025-poster/
-├── poster.tex            % メインのLaTeXファイル
-├── images/               % 背景画像や図表
+├── poster.tex            % Main LaTeX file
+├── images/               % Background images and figures
 │   └── background.jpg
-├── fonts/                % カスタムフォント (必要なら)
-├── README.md             % リポジトリ説明
-├── LICENSE               % ライセンス (CC BYなど)
-├── .gitignore            % 中間ファイル除外
-└── build/                % 出力PDFや一時ファイル (gitignore対象)
+├── fonts/                % Custom fonts (if needed)
+├── README.md             % Repository description (English; this file)
+├── README-ja.md          % Repository description (Japanese)
+├── LICENSE               % License (CC BY, etc.)
+├── .gitignore            % Exclude intermediate files
+└── build/                % Output PDFs and temporary files (gitignore target)
 ```
 
-### 🎯 **目的**
+### 🎯 **Purpose**
 
-- A0縦サイズの学会ポスター
-- 英語・日本語の切り替え対応
-- 背景画像・多言語タイトル
-- 完全自由レイアウト
+- A0 vertical size academic poster
+- English and Japanese language switching
+- Background image and multilingual title
+- Completely free layout
 
 ---
 
-## 🌿 **主な構成**
+## 🌿 **Main Components**
 
-✅ **ドキュメントクラス**
+✅ **Document Class**
 
 ```latex
 \documentclass{article}
 \usepackage[paperwidth=84.1cm, paperheight=118.9cm, margin=0cm]{geometry}
 ```
 
-→ `geometry` で用紙サイズを指定→ `standalone` は使わず `article` + `tikz` で自由レイアウト
+→ with `geometry` to specify paper size → using `article` + `tikz` for free layout instead of `standalone`
 
 ---
 
-✅ **フォント**
+✅ **Font**
 
 ```latex
 \usepackage{fontspec}
@@ -44,11 +45,11 @@ JADH2025-poster/
 \newfontfamily\jpfont{Noto Sans CJK JP}
 ```
 
-→ スケーラブルフォントで大きな文字も警告なし
+→ Scalable fonts allow large text without warnings
 
 ---
 
-✅ **TikZ背景画像**
+✅ **TikZ Background Image**
 
 ```latex
 \node[
@@ -60,32 +61,32 @@ JADH2025-poster/
 };
 ```
 
-→ `opacity=0.2`で薄く
+→ `opacity=0.2` for transparency
 
 ---
 
-✅ **英日切り替え**
+✅ **Language Switching**
 
 ```latex
 \newif\ifENG
-\ENGtrue % 英語版
+\ENGtrue % English version
 ```
 
-ノードごとに切り替え：
+Change per node:
 
 ```latex
 \ifENG
-  英語テキスト
+    English text
 \else
-  日本語テキスト
+    Japanese text
 \fi
 ```
 
-→ 文字数差の影響を避けるため**ノード単位で分ける**
+→ to avoid text length differences, **split by nodes**
 
 ---
 
-✅ **色定義**
+✅ **Color Scheme**
 
 ```latex
 \usepackage{xcolor}
@@ -94,16 +95,16 @@ JADH2025-poster/
 \definecolor{katanoTextGray}{HTML}{333333}
 ```
 
-→ `text=katanoPurple`で適用
+→ `text=katanoPurple` for application
 
 ---
 
-✅ **文字装飾**
+✅ **Title and Author Formatting**
 
-- `\fontsize{...}{...}\selectfont`で任意サイズ
-- 上付き番号は `\raisebox` 推奨
+- `\fontsize{...}{...}\selectfont` for arbitrary sizes
+- Superscript numbers recommended with `\raisebox`
 
-例：
+Example:
 
 ```latex
 Hilofumi Yamamoto{\raisebox{1.5ex}{\fontsize{20pt}{20pt}\selectfont 1}}
@@ -111,32 +112,26 @@ Hilofumi Yamamoto{\raisebox{1.5ex}{\fontsize{20pt}{20pt}\selectfont 1}}
 
 ---
 
-✅ **著作権表記**
+✅ **Copyright and License**
 
 ```latex
 Background Image courtesy of the Museum of Fine Arts, Boston; Public Domain
 ```
 
-→ 非営利利用なら十分
+→ CC BY license for the poster
 
 ---
 
-✅ **コメント** TikZのみで構成することで
+✅ **Comments** is composed entirely with TikZ, allowing:
 
-- 絶対座標で配置
-- 完全自由レイアウト
-- 英日分岐も安全とても安定した運用が可能
-
----
-
-✨ **次にやりたいこと**
-
-- 図表配置
-- 区切り罫線
-- フォント・配色最終調整何でもサポートします。
+- Absolute positioning
+- Completely free layout
+- Safe and stable operation with English-Japanese switching
 
 ---
 
-このまとめを新しいスレッドに貼り付けていただければ、続きをスムーズに進められます！
+✨ **Next Steps**
 
-もし他に要る情報があれば教えてください。
+- Figure and Table Configuration
+- Gridlines to devide sections
+-
