@@ -130,7 +130,7 @@ Institute of Science Tokyo
 The University of Osaka
 };
 
-% 左上テキストボックス
+
 \node[
   draw=katanoBlue,
   line width=3pt,
@@ -141,13 +141,36 @@ The University of Osaka
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
 ] at ([xshift=4cm,yshift=-15cm]current page.north west) {
-  \textbf{\fontsize{40pt}{30pt}\selectfont Background}\\[1em]
+  \textbf{\fontsize{40pt}{30pt}\selectfont Introduction}\\[1em]
   \textcolor{katanoBrown}{
     \begin{itemize}
       \item Ise Monogatari: A classic of Japanese literature
       \item Process Grammar Model: A framework for understanding narrative structures
       \item Bilingual approach: Bridging classical Japanese and modern English
     \end{itemize} 
+  }
+};
+
+
+% 左上テキストボックス
+\node[
+  draw=katanoBlue,
+  line width=3pt,
+  inner sep=10mm, 
+  anchor=north west,
+  text width=35cm,
+  align=left,
+  text=mydeepblue,
+  font=\fontsize{30pt}{20pt}\bfseries
+] at ([xshift=4cm,yshift=-27cm]current page.north west) {
+  \textbf{\fontsize{40pt}{30pt}\selectfont Problem}\\[1em]
+  \textcolor{katanoBrown}{
+    \begin{itemize}
+      \item Translation used to write unwritten elements in the original text.
+      \item Translation has not been provided the intention of the author's unwritten meaning.
+      \item Translation does not allow readers to speculate the author's intention.
+      \item The original work would be less interesting by reading the such translation.
+   \end{itemize} 
   }
 };
 
@@ -160,15 +183,38 @@ The University of Osaka
   text width=35cm,
   align=left,
   text=mydeepblue,
-  font=\fontsize{30pt}{20pt}\bfseries
+%  font=\fontsize{30pt}{20pt}\bfseries
+  font=\jpfont\fontsize{30pt}{20pt}\bfseries
 ] at ([xshift=-3cm,yshift=-15cm]current page.north east) {
   \textbf{\fontsize{40pt}{30pt}\selectfont Methods}\\[1em]
   \textcolor{katanoBrown}{
     \begin{itemize}
       \item 4-Step Translation Process
       \item Use of Process Grammar Model
+%      \item gloss の本質は「原語を知らなくても、意味と文法機能が理解できる」記述にある。
+      \item The essence of gloss is to provide a description that allows understanding of meaning and grammatical function without knowing the original language.
+%      \item その点で、あなたの設計方針は正確で、本質を突いています。
+      \item In that respect, this design philosophy is accurate and gets to the essence.
     \end{itemize} 
   }
+};
+
+
+% ariwara no narihira ason
+\node[
+  draw=katanoBlue,
+  line width=0pt,
+  inner sep=10mm, 
+  anchor=north east,
+  text width=12cm,
+  align=center,
+  text=mydeepblue,
+  font=\jpfont\fontsize{20pt}{10pt}\bfseries
+] at ([xshift=-3cm,yshift=-7cm]current page.north east) {
+  \includegraphics[trim=110 90 90 310,clip,width=12cm]{images/ariwaranonarihira.jpg}
+  \\[.5em]
+  \textbf{\fontsize{27pt}{10pt}\selectfont Ariwara no Narihira}
+  \includegraphics[trim=0 0 0 0,clip,width=1.2cm]{images/PD-icon.png}
 };
 
 % 中央下テキスト
@@ -181,10 +227,9 @@ The University of Osaka
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=4cm, yshift=-40cm]current page.north west) {
+] at ([xshift=4cm, yshift=-50cm]current page.north west) {
   \textbf{\fontsize{40pt}{30pt}\selectfont Results and Conclusion}\\[1em]
   \textcolor{katanoBrown}{
-  Summarize the results and main findings here...
   \begin{itemize}
     \item Enhanced understanding of Ise Monogatari
     \item Effective bilingual translation
@@ -193,7 +238,6 @@ The University of Osaka
   \end{itemize}
   }
 };
-
 
 % 中央下右テキスト
 \node[
@@ -205,7 +249,7 @@ The University of Osaka
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=4cm, yshift=-80cm]current page.north west) {
+] at ([xshift=4cm, yshift=-111cm]current page.north west) {
   \textbf{\fontsize{40pt}{30pt}\selectfont References}\\[1em]
   - Yamamoto, H. (2025). Process Grammar Model (v1.0.11). Zenodo. 
   \href{https://doi.org/10.5281/zenodo.15613134}{
@@ -214,7 +258,6 @@ The University of Osaka
   }
 
 };
-
 
 
 % ロゴ（右下）
