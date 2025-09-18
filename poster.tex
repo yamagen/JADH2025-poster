@@ -1,15 +1,58 @@
 \newif\ifENG
 \ENGtrue % 英語版を使用する場合はtrue、和文版を使用する場合はfalseに設定
 
+\newif\ifhidejson
+\hidejsonfalse % JSONを表示する場合はtrue、表示しない場合はfalseに設定
+\hidejsontrue % JSONを表示しない場合はtrue、表示しない場合は
+
+\newif\ifshowIntro
+\showIntrofalse 
+\showIntrotrue 
+
+\newif\ifshowBG
+\showBGfalse 
+\showBGtrue 
+
+\newif\ifshowjson
+\showjsontrue % JSONを表示する場合はtrue、表示しない場合はfalseに設定
+\showjsonfalse % JSONを表示しない場合はtrue、表示しない場合はfalseに設定
+
 \documentclass{article}
 \usepackage[paperwidth=84.1cm, paperheight=118.9cm, margin=0cm]{geometry}
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{fontspec}
+\usetikzlibrary{positioning,shapes.callouts}% 吹き出し用
+\usepackage{listings}
+\usepackage{xcolor}
+
+% JSON 用スタイル定義
+\lstdefinelanguage{json}{
+  basicstyle=\fontsize{26}{26}\selectfont\ttfamily,
+}
+
+\lstset{
+  breaklines=true,
+  basicstyle=\fontsize{26}{26}\selectfont\ttfamily,
+  breakatwhitespace=false,
+  breakindent=2em,
+  columns=flexible,
+  escapeinside={(*@}{@*)}
+}
+
+%\lstset{
+%  basicstyle=\fontsize{28}{18}\selectfont\ttfamily,
+%  breaklines=true,
+%  columns=fullflexible,
+%  escapeinside={(*@}{@*)} % 中でLaTeXを使うための逃げ
+%}
 
 % 色の定義
 \definecolor{mydeepblue}{HTML}{332E83}
+
+% カスタム色定義（例：薄いクリーム色）
+\definecolor{cream}{RGB}{255, 254, 250}
 
 % 背景用
 \definecolor{deepBackground}{HTML}{332E83} % 深い藍（背景など）
@@ -38,7 +81,7 @@
 \definecolor{katanoTextGray}{HTML}{333333} % 濃い灰（本文）
 
 \setmainfont{Noto Sans}
-\newfontfamily\jpfont{Noto Sans CJK JP}
+\newfontfamily\jpfont{Noto Sans Mono CJK JP}
 
 %\setmainfont{Noto Sans CJK JP} % 日本語フォントを指定
 
@@ -57,7 +100,8 @@
 %};
 
 % 背景画像をページ全面に敷く
-\node[
+\ifshowBG
+\node (bg-pic) [
   anchor=south west,
   inner sep=0,
   opacity=0.2, % 透明度を設定
@@ -65,8 +109,9 @@
   \includegraphics[width=\paperwidth,height=\paperheight]{
 %  ise-katano.jpg
     images/yatsuhashi.jpg
-}
+ }
 };
+\fi
 
 % 画像の著作権
 \node[
@@ -130,28 +175,190 @@ Institute of Science Tokyo
 The University of Osaka
 };
 
+\ifshowIntro
 
+% タイトルノード（上に浮かせる）
 \node[
   draw=katanoBlue,
-  line width=3pt,
+  line width=5pt,
   inner sep=10mm, 
   anchor=north west,
-  text width=35cm,
+  text width=61cm,
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=4cm,yshift=-15cm]current page.north west) {
-  \textbf{\fontsize{40pt}{30pt}\selectfont Introduction}\\[1em]
+] (introbox) at ([xshift=4cm,yshift=-14cm]current page.north west) {
+%  \textbf{\fontsize{40pt}{30pt}\selectfont Introduction}\\[1em]
   \textcolor{katanoBrown}{
     \begin{itemize}
       \item Ise Monogatari: A classic of Japanese literature
       \item Process Grammar Model: A framework for understanding narrative structures
       \item Bilingual approach: Bridging classical Japanese and modern English
+%      \item {\jpfont 逐語訳は、原文の意味を正確に伝えることが難しい。また、原文に忠実に単語毎に訳しているので、文法的に不自然な訳文になることが多い。これが、注釈書に見られる訳文のぎこちなさの一因である。しかし、これは学術を否定すべき要素にはならない。むしろ、記録上に残されていない要素を補うために、逐語訳が必要になることもある。逐語訳は、原文の意味を正確に伝えることが難しい。また、原文に忠実に単語毎に訳しているので、文法的に不自然な訳文になることが多い。これが、注釈書に見られる訳文のぎこちなさの一因である。しかし、これは学術を否定すべき要素にはならない。}
+%      \item Literal translation struggles to accurately convey the original meaning. Additionally, since it translates word-for-word faithfully to the original text, it often results in grammatically unnatural translations. This is one reason for the awkwardness found in annotated translations. However, this should not be a factor to negate academic work. Rather, literal translation may be necessary to supplement elements not recorded in the original text.
+        % \item 文章読解は、まず書かれたことを忠実に拾い、再構成することから始まる。
+%      \item Text comprehension begins with faithfully capturing what is written and reconstructing it.
+        % \item 翻訳も現代語にしろ、英訳にしろ、まずは原文に忠実であることが重要である。
+%      \item In translation, whether into modern Japanese or English, fidelity to the original text is paramount.
+        % \item その上で、読み手にとって自然な文章になるように、適切な補足や解説を加えることが求められる。
+%      \item On that basis, it is necessary to add appropriate supplements and explanations to make the text natural for the reader.
+        % \item しかし、読み取るということには、読者の解釈が入る余地がある。
+%      \item However, interpretation by the reader leaves room for subjective understanding.
+        % \item その解釈を翻訳に反映させることは、学術的な翻訳としては避けるべきである。
+%      \item Reflecting that interpretation in the translation should be avoided in academic translations.
+        % \item なぜならば、1. 原文に書かれていないことを、翻訳者の解釈で補うことは、原文の意味を歪める可能性があるからである。2. 読者が翻訳を通じて、原文の意味を推測することができなくなるからである。3. そのような翻訳は、原文を読むことによる楽しみを損なうからである。
+%      \item This is because: 1. Supplementing the original text with the translator's interpretation can distort the original meaning. 2. Readers may be unable to infer the original meaning through the translation. 3. Such translations diminish the enjoyment of reading the original text.
+        % \item 逐語訳の課題: できる限り、しかし完璧ではない。
+%      \item Challenges in literal translation: as best as possible, but not perfect.
+        % \item gloss の本質は「原語を知らなくても、意味と文法機能が理解できる」記述にある。
+%      \item The essence of gloss is to provide a description that allows understanding of meaning and grammatical function without knowing the original language.
+        % \item その上で、読者は、原文を読み解く楽しみを味わうことができるし、これを翻訳者が奪ってはならない。
+%      \item On that basis, readers can enjoy deciphering the original text, and this should not be taken away by the translator.
+      % \item その解釈の過程を奪わないようにするために、4段階の翻訳プロセスを▼開発した。
+%      \item To avoid taking away the process of interpretation, we have developed a 4-step translation process.
+        % \item その1ステップ目として、逐語訳を行う。
+%      \item The first step is to perform a literal translation.
+        % \item 2ステップ目として、逐語訳を基本として、句の単位に、いわば、口述順序を尊重するために、句の意味が独立して成立する単位に分割した。
+%      \item The second step is to divide the literal translation into units where the meaning of phrases can stand independently, respecting the order of narration. 
+        % \item 3ステップ目として、原文の言語要素にglossを付与する。glossは、原文の意味と文法機能を理解できるようにするためのものである。このgloss の付与については、句の単位で行い、他の句との関係は考慮しない。その意味で、文を前提とする句構造規則を用いることはしない。
+%      \item The third step is to add gloss to the linguistic elements of the original text. Gloss is intended to help understand the meaning and grammatical function of the original text. This glossing is done at the phrase level without considering relationships with other phrases. In that sense, we do not use phrase structure rules that assume sentences.
+        % \item 4ステップ目として、句と句の関係を考慮して、自然な現代語訳、あるいは英語になるように、句を組み合わせていく。このとき、原文に書かれていないことを、翻訳者の解釈で補うことは避ける。
+%      \item The fourth step is to combine phrases into a natural modern Japanese or English translation, considering the relationships between phrases. At this time, we avoid supplementing the original text with the translator's interpretation.
+        % \item そのようにして、原文に忠実でありながら、読み手にとって自然な翻訳を提供することを意図している。
+%      \item In this way, we aim to provide a translation that is faithful to the original text while being natural for the reader.
     \end{itemize} 
   }
 };
 
+\node[
+  anchor=south west,
+  font=\bfseries\fontsize{40pt}{30pt}\selectfont,
+  text=mydeepblue,
+  fill=cream,
+  inner sep=5pt
+] at ([xshift=10mm, yshift=-10mm]introbox.north west) {Introduction};
 
+\fi%ifshowIntro
+
+%------------------------------------
+ % JSON 本体 ise.json
+\node[anchor=north west ] (json) at ([xshift=6cm,yshift=-22cm]current page.north west) {
+\jpfont 
+  \begin{minipage}{0.9\textwidth}
+\ifhidejson
+%{
+%  "id": 6,
+%  "text": "(*@\jpfont 狩しありきけるに... @*)"
+%  "text": "Kari shi arikikeru ni iki ahite..."
+%}
+\fi%ifhidejson
+\begin{lstlisting}[language=json]
+{
+  "date": [20240721, 20250214, 20250508],
+  "id": 6,
+  "text": "(*@\jpfont 狩しありきけるにいきあひて、道にて馬の口をとりて、「かうかうなむ思ふ」といひければ、あはれがりて、来て寝にけり。 @*)",
+  "kana": "(*@\jpfont かりしありきけるにいきあひて、みちにてうまのくちをとりて、「かうかうなむおもふ」といひければ、あはれがりて、きてねにけり。 @*)",
+  "koutei": "...",
+  "honkoku": "...",
+  "translation-ja": "(*@\jpfont 狩りをして歩いているときに出会って、道で馬の口をつかんで、「こうこうと思っています」と言ったので、同情して、来て寝た。 @*)",
+  "translation-en": "While out hunting, he encountered [her], and on the road took hold of the horse's bridle, saying, 'This is what I think.' Feeling moved, [she] came and lay down [with him].",
+  "phrase-gloss": [
+    {
+    "phrase": "(*@\jpfont 狩しありきけるに @*)",
+      "gloss": "while he was out hunting",
+      "words": [
+        { "word": "(*@\jpfont 狩 @*)", "gloss": "hunting" },
+        { "word": "(*@\jpfont し @*)", "gloss": "do.PST" },
+        { "word": "(*@\jpfont ありき @*)", "gloss": "walked.about.PST" },
+        { "word": "(*@\jpfont ける @*)", "gloss": "PST" },
+        { "word": "(*@\jpfont に @*)", "gloss": "when" }
+      ]
+    },
+    ... (omitted for brevity) ...
+    {
+      "phrase": "(*@\jpfont 道にて馬の口をとりて @*)",
+      "gloss": "on the road took hold of the horse's bridle",
+      "words": [
+        { "word": "(*@\jpfont 道 @*)", "gloss": "road" },
+        { "word": "(*@\jpfont にて @*)", "gloss": "LOC.CVB" },
+        { "word": "(*@\jpfont 馬 @*)", "gloss": "horse" },
+        { "word": "(*@\jpfont の @*)", "gloss": "GEN" },
+        { "word": "(*@\jpfont 口 @*)", "gloss": "mouth / bridle" },
+        { "word": "(*@\jpfont を @*)", "gloss": "ACC" },
+        { "word": "(*@\jpfont とり @*)", "gloss": "take" },
+        { "word": "(*@\jpfont て @*)", "gloss": "CVB" }
+      ]
+    },
+    {
+      "phrase": "(*@\jpfont 「かうかうなむ思ふ」といひければ @*)",
+      "gloss": "saying, 'This is what I think'",
+      "words": [
+        { "word": "(*@\jpfont かうかう @*)", "gloss": "thus and thus" },
+        { "word": "(*@\jpfont なむ @*)", "gloss": "FOC" },
+        { "word": "(*@\jpfont 思ふ @*)", "gloss": "think" },
+        { "word": "(*@\jpfont と @*)", "gloss": "QUOT" },
+        { "word": "(*@\jpfont いひ @*)", "gloss": "say" },
+        { "word": "(*@\jpfont けれ @*)", "gloss": "PST" },
+        { "word": "(*@\jpfont ば @*)", "gloss": "when" }
+      ]
+    },
+    {
+      "phrase": "(*@\jpfont あはれがりて、来て寝にけり @*)",
+      "gloss": "being moved, she came and lay with him",
+      "words": [
+        { "word": "(*@\jpfont あはれがり @*)", "gloss": "be.moved" },
+        { "word": "(*@\jpfont て @*)", "gloss": "CVB" },
+        { "word": "(*@\jpfont 来 @*)", "gloss": "come" },
+        { "word": "(*@\jpfont て @*)", "gloss": "CVB" },
+        { "word": "(*@\jpfont 寝 @*)", "gloss": "sleep" },
+        { "word": "(*@\jpfont に @*)", "gloss": "PFV" },
+        { "word": "(*@\jpfont けり @*)", "gloss": "PST" }
+      ]
+    @*)}
+  ],
+  "abbreviations": {
+    "CVB": "converb",
+    "PST": "past",
+    "LOC": "locative",
+    "GEN": "genitive",
+    "ACC": "accusative",
+    "FOC": "focus",
+    "QUOT": "quotative",
+    "PFV": "perfective"
+  },
+  "translation-ja-natural": "(*@\jpfont 男が狩りに出かけていたとき、道で出会った三男が馬の口をつかみ、「こんなふうに思っています」と伝えた。 男はそれを聞いて心を動かされ、ある女のもとへ行き、一夜を共にした。 @*)",
+  "translation-en-natural": "While the man was out hunting, he met a young man on the road who took hold of his horse’s bridle and said, 'This is how I feel.' Moved by those words, the man went to a certain woman and spent the night with her.",
+  "notes-ja": [....],
+  "notes-en": [
+    {
+            "title": "The narrator and the 'man'",
+            "note": "In the Ise Monogatari, the narrator refers to himself in the third person as 'the man.' This self-distancing technique allows the text to feel autobiographical while maintaining a poetic and narrative detachment. In this passage, the narrator—presumed to be Narihira—is recounting his own experience in such terms."
+          },
+\end{lstlisting}
+  \end{minipage}
+};
+% キャラクター画像
+\node[left=-5cm of json, yshift=0cm] (char) {
+  \includegraphics[width=10cm]{images/onionboy.png}
+};
+% 雲型吹き出し
+\node[
+  right=-6.5cm of char, 
+  yshift=3.5cm,
+  rectangle callout,
+  rounded corners=15pt, 
+  callout relative pointer={(-1cm,-1cm)},
+%  anchor=south east,
+  draw,
+  fill=white,
+  text width=6cm,
+  align=center,
+  inner sep=20pt,
+  ] at (char.east) {Kaukau.., did not say in detail what he told};
+%------------------------------------
+
+
+\ifshowjson
 % 左上テキストボックス
 \node[
   draw=katanoBlue,
@@ -173,7 +380,9 @@ The University of Osaka
    \end{itemize} 
   }
 };
+\fi%ifshowjson
 
+\ifshowjson
 % 右上テキストボックス
 \node[
   draw=katanoBlue,
@@ -199,6 +408,7 @@ The University of Osaka
   }
 };
 
+\fi%ifshowjson
 
 % ariwara no narihira ason
 \node[
@@ -217,7 +427,9 @@ The University of Osaka
   \includegraphics[trim=0 0 0 0,clip,width=1.2cm]{images/PD-icon.png}
 };
 
+\ifshowjson
 % 中央下テキスト
+% results and conclusion
 \node[
   draw=katanoBlue,
   line width=3pt,
@@ -227,18 +439,34 @@ The University of Osaka
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=4cm, yshift=-50cm]current page.north west) {
+] at ([xshift=4cm, yshift=-100cm]current page.north west) {
   \textbf{\fontsize{40pt}{30pt}\selectfont Results and Conclusion}\\[1em]
   \textcolor{katanoBrown}{
   \begin{itemize}
+    % \item 伊勢物語全125段の日英▼逐語訳と自然訳を作成した。
+    \item Created a complete bilingual literal and natural translation of all 125 sections of Ise Monogatari.
+      % \item プロセス文法モデルを用いて、逐語訳を句の単位に分割し、各句にglossを付与した。
+    \item Using the Process Grammar Model, we segmented the literal translation into phrases and added gloss to each phrase.
+      % \item その上で、句と句の関係を考慮して、自然な現代語訳、あるいは英語になるように、句を組み合わせていった。
+    \item On that basis, we combined phrases into a natural modern Japanese or English translation, considering the relationships between phrases.
+      % \item そのようにして、原文に忠実でありながら、読み手にとって自然な翻訳を提供することができた。
+    \item In this way, we were able to provide a translation that is faithful to the original text while being natural for the reader.
+      % \item このプロセスを通じて、伊勢物語の理解が深まり、また、逐語訳と自然訳の両方を提供することで、読者が原文の意味を推測する楽しみを損なうことなく、原文の意味を正確に伝えることができた。
     \item Enhanced understanding of Ise Monogatari
     \item Effective bilingual translation
     \item Insights into narrative structures
     \item Check the flow of the translation process
+      % \item 逐語訳の課題: できる限り、しかし完璧ではない。
+    \item Challenges in literal translation: as best as possible, but not perfect.
+    \item Future Work: Expanding to other classical texts such as Tosa Nikki.
+      % \item 繰り返し、このプロセスを通じて、翻訳の質を向上させる。
+    \item Repeatedly improve translation quality through this process.
   \end{itemize}
   }
 };
+\fi%ifshowjson
 
+%\ifshowjson
 % 中央下右テキスト
 \node[
   draw=katanoBlue,
@@ -258,7 +486,7 @@ The University of Osaka
   }
 
 };
-
+%\fi%ifshowjson
 
 % ロゴ（右下）
 \node[
