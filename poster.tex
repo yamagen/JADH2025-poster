@@ -244,6 +244,8 @@ The University of Osaka
 
 \fi%ifshowIntro
 
+
+
 %------------------------------------
  % JSON 本体 ise.json
 \node[anchor=north west ] (json) at ([xshift=6cm,yshift=-22cm]current page.north west) {
@@ -338,19 +340,197 @@ The University of Osaka
   \end{minipage}
 };
 
+% =================================
+% 付箋ノード No. 1 Yatsuhashi
+\node[
+  draw,
+  fill=pink!30,
+%  text width=10cm,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+  text width=30cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{20pt}{20pt}\bfseries
+] at ([xshift=58cm,yshift=-19cm]json.north west)
+{
+  \includegraphics[width=9cm]{images/yatsuhashi-kashi.png}
+  \includegraphics[width=18cm]{images/yatsuhashi-hokusai.png}
+
+% By 毎日アート出版株式会社 - http://www.mainichi-art.co.jp/pages/arcadelinks/hokusai-taki/taki.html, Public Domain, https://commons.wikimedia.org/w/index.php?curid=9810966
+  \ifENG
+%    三河の八ツ橋の古図(みかわのやつはしのこず)
+  Yatsuhashi (Eight Bridges) is also connected to the present-day Kyoto confection "Yatsuhashi." Mainichi Art Publishing Co., Ltd., Public Domain / Mikawa no Yatsuhashi no Kozu (Ancient Map of Eight Bridges in Mikawa) by Katsushika Hokusai (1760-1849)
+\else
+\jpfont  八橋は現在の京都銘菓「八ツ橋」にもつながる。
+三河の八ツ橋の古図(みかわのやつはしのこず)
+  葛飾北斎(1760-1849)画
+
+\fi
+};
+
+%------------------------------------
+
+% 付箋ノード No. 2 Thought2waka
+\node[
+  draw,
+  fill=yellow!30,
+%  text width=10cm,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+  text width=42cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{24pt}{24pt}\bfseries
+] at ([xshift=52cm,yshift=-40cm]json.north west)
+{
+  \includegraphics[width=41cm]{images/thought2waka02.png}
+  % 物語の中で、和歌は重要な役割を果たす。和歌は、登場人物の感情や思考を表現する手段として使われることが多い。和歌は、物語の進行に合わせて、登場人物の心情を反映するように配置されることがある。いわば、ミュージカルである。
+  \ifENG
+    In the story, waka plays an important role. Waka is often used as a means to express the emotions and thoughts of the characters. Waka is sometimes placed to reflect the characters' feelings in line with the progression of the story. In a way, it is like a \textcolor{red}{MUSICAL}.
+\else
+  \jpfont  物語の中で、和歌は重要な役割を果たす。和歌は、登場人物の感情や思考を表現する手段として使われることが多い。和歌は、物語の進行に合わせて、登場人物の心情を反映するように配置されることがある。いわば、\textcolor{red}{ミュージカル}である。
+\fi
+};
+
+
+% 付箋ノード No. 3 Phrase-gloss
+\node[
+  draw,
+  fill=yellow!30,
+%  text width=10cm,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+  text width=15cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{20pt}{20pt}\bfseries
+] at ([xshift=31cm,yshift=-11cm]json.north west)
+{
+% Phrase-gloss は、原文の意味と文法機能を理解できるようにするためのものである。
+\ifENG
+  \textcolor{blue}{Phrase-gloss} is intended to help understand the meaning and grammatical function of the original text.
+\else
+\jpfont  Phrase-gloss は、原文の意味と文法機能を理解できるようにするためのものである。
+\fi
+};
+
+%------------------------------------
+% 付箋ノード No. 4  horse master
+\node[
+  draw,
+  fill=green!30,
+%  text width=10cm,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+  text width=10cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{24pt}{24pt}\bfseries
+] at ([xshift=30cm,yshift=-17cm]json.north west)
+{
+\ifENG
+  \textcolor{blue}{Uma no kami} ("Master of Horses") is actually Narihira himself.
+\else
+  \jpfont  \textcolor{blue}{馬の君}は、実は業平自身である。
+\fi
+};
+
+
+%------------------------------------
+% 付箋ノード No. 5 Tsukumogami abstract
+\node[
+  draw,
+  fill=green!20,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+  text width=50cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{26pt}{26pt}\bfseries
+] at ([xshift=48cm,yshift=-55cm]json.north west)
+{
+  % つくも髪のあらすじ: 
+  
+\ifENG
+The abstract of 
+\textcolor{red}{Tsukumogami} 
+Ise 63 dan ("a white-haired woman, nearly a hundred years old")
+A woman longing for kindness tells a false dream to three children, hoping to express her hidden feelings. Only one child, likely the youngest, responds warmly, bringing her joy. Meanwhile, a man meets a youth who declares his emotions boldly, inspiring the man to visit a woman and stay the night. When he doesn’t return, she secretly visits his home, where he glimpses her aged form and wonders if she truly loves him. Touched, he later watches her silently grieving. Feeling pity, he sleeps beside her. Though the world loves selectively, this man shows compassion regardless of love returned or not.
+\else
+  \jpfont 
+  \textcolor{red}{つくも髪}のあらすじ: 
+  優しさを求める女性が、隠れた思いを伝えようと、三人の子供に偽りの夢を語る。 一人の子供、恐らく末っ子だけが温かく応じ、彼女に喜びをもたらす。 一方、男は若者に出会い、彼の感情を大胆に宣言することに触発され、女性を訪ね、一夜を過ごす。 彼が戻らないと、彼女は密かに彼の家を訪れ、彼は彼女の年老いた姿を垣間見て、彼女が本当に彼を愛しているのか疑問に思う。 感動した彼は後に彼女が静かに悲しんでいるのを見守る。 哀れみを感じ、彼は彼女のそばで眠る。 世界は選択的に愛するが、この男は、愛が返されるかどうかに関係なく、思いやりを示す。
+\fi
+};
+
+%------------------------------------
+% 付箋ノード No. 6 in JSON format
+\node[
+  draw,
+  fill=blue!20,
+  align=left,
+  rounded corners=3pt,
+  rotate=9,
+  text width=9cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{60pt}{60pt}\bfseries
+] at ([xshift=51cm,yshift=5cm]json.north west)
+{
+  % JSON形式でのデータ保存は、構造化された情報管理に役立つ。
+\ifENG
+\textcolor{red}{in JSON format} 
+\else
+  \jpfont 
+  \textcolor{red}{JSONフォーマット}
+\fi
+};
+
+
+%------------------------------------
+% 付箋ノード No. 7 Do not translate in detail.
+\node[
+  draw,
+  fill=pink!20,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+  text width=39cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{58pt}{58pt}\bfseries
+] at ([xshift=51cm,yshift=-67cm]json.north west)
+{
+\ifENG
+  \textcolor{red}{Do not translate TOO MUCH!} 
+\else
+  \jpfont 
+  \textcolor{red}{あまり詳しく翻訳しないこと。}
+\fi
+};
+
+
+%------------------------------------
+
 %=================================================
 % キャラクター画像 kaukau what? presenboy01.png
 \node[left=-4cm of json, yshift=2cm] (char01) {
  % \includegraphics[width=10cm]{images/onionboy.png}
-  \includegraphics[width=10cm]{images/presenboy01.png}
+  \reflectbox{ \includegraphics[width=4cm]{images/hontoudesukaa01.png}}
 };
 % 雲型吹き出し
 \node[
-  right=-6.5cm of char01, 
-  yshift=5.6cm,
+  right=-7.5cm of char01, 
+  yshift=4.6cm,
   rectangle callout,
   rounded corners=15pt, 
-  callout relative pointer={(-0.3cm,-.6cm)},
+  callout relative pointer={(0.3cm,-.6cm)},
 %  anchor=south east,
   draw,
   fill=white,
@@ -375,11 +555,11 @@ The University of Osaka
 %  anchor=south east,
   draw,
   fill=white,
-  text width=8cm,
+  text width=18cm,
   align=center,
   inner sep=10pt,
   font=\fontsize{30pt}{30pt}\bfseries
-  ] at (char02.east) {52 dan, ID 6};
+  ] at (char02.east) {63 dan, ID 6, Tsukumogami};
 %------------------------------------
 
 
@@ -403,6 +583,29 @@ The University of Osaka
   inner sep=10pt,
   font=\fontsize{30pt}{30pt}\bfseries
   ] at (char03.east) {\textcolor{red}{Sleep}? With whom?};
+%------------------------------------
+
+% キャラクター画像 kaukau what? hontoudesukaa01.png
+\node[left=-19cm of json, yshift=-22cm] (char04) {
+% % \includegraphics[width=10cm]{images/onionboy.png}
+  \reflectbox{  \includegraphics[width=10cm]{images/presenboy01.png}}
+};
+% 雲型吹き出し
+\node[
+  right=-3.5cm of char04, 
+  yshift=3.8cm,
+  rectangle callout,
+  rounded corners=15pt, 
+  callout relative pointer={(-0.9cm,-.6cm)},
+%  anchor=south east,
+  draw,
+  fill=white,
+  text width=5cm,
+  align=center,
+  inner sep=10pt,
+  font=\fontsize{30pt}{30pt}\bfseries
+  ] at (char04.east) {\textcolor{katanoSlateBlue}{Gloss}? LGR?};
+
 %------------------------------------
 %==================================
 
@@ -478,7 +681,7 @@ The University of Osaka
 
 \ifshowConclusion
 % 中央下テキスト
-% results and conclusion
+% results and conclusion (conclusionbox)
 \node[
   draw=katanoBlue,
   line width=5pt,
@@ -556,9 +759,7 @@ The University of Osaka
   inner sep=5pt
   ] at ([xshift=10mm, yshift=-10mm]refbox.north west) {References};
 
-
 %\fi%ifshowjson
-
 % ロゴ（右下）
 \node[
   anchor=south east
