@@ -27,7 +27,7 @@
 
 ### ■ Example Translation: "Tsukumogami"
 
-* **Background**: The "tsukumogami" is not an elderly woman, but a relatively young mother with three children.
+* **Background**: The "tsukumogami" is not an elderly woman, but a woman who is younger than Narihira and has three children.
 * **Typical example of Immediate Grammar**:
 
   * Tone of speaking to children, digressions in conversation, and the use of "dream" stories as a euphemistic form of expression.
