@@ -195,7 +195,7 @@ The University of Osaka
 %  \textbf{\fontsize{40pt}{30pt}\selectfont Introduction}\\[1em]
   \textcolor{katanoBrown}{
     \begin{itemize}
-      \item Ise Monogatari: A classic of Japanese literature
+      \item Ise Monogatari: A classic of Japanese literature established in CA. 10th century, Heian period.
       \item Process Grammar Model: A framework for understanding narrative structures
       \item Bilingual approach: Bridging classical Japanese and modern English
 %      \item {\jpfont 逐語訳は、原文の意味を正確に伝えることが難しい。また、原文に忠実に単語毎に訳しているので、文法的に不自然な訳文になることが多い。これが、注釈書に見られる訳文のぎこちなさの一因である。しかし、これは学術を否定すべき要素にはならない。むしろ、記録上に残されていない要素を補うために、逐語訳が必要になることもある。逐語訳は、原文の意味を正確に伝えることが難しい。また、原文に忠実に単語毎に訳しているので、文法的に不自然な訳文になることが多い。これが、注釈書に見られる訳文のぎこちなさの一因である。しかし、これは学術を否定すべき要素にはならない。}
@@ -481,7 +481,7 @@ A woman longing for kindness tells a false dream to three children, hoping to ex
 %  align=center,
   inner sep=20pt,
   font=\fontsize{60pt}{60pt}\bfseries
-] at ([xshift=51cm,yshift=5cm]json.north west)
+] at ([xshift=51cm,yshift=2cm]json.north west)
 {
   % JSON形式でのデータ保存は、構造化された情報管理に役立つ。
 \ifENG
@@ -492,9 +492,31 @@ A woman longing for kindness tells a false dream to three children, hoping to ex
 \fi
 };
 
+%------------------------------------
+% 付箋ノード No. 8 Interpretation is not translation.
+\node[
+  draw,
+  fill=yellow!20,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+  text width=49cm,
+%  align=center,
+  inner sep=20pt,
+  font=\fontsize{42pt}{42pt}\bfseries
+] at ([xshift=27cm,yshift=-75cm]json.north west)
+{
+\ifENG
+  \textcolor{blue}{If it is necessary, interpretation can be written in notes-ja/en.}
+\else
+  \jpfont 
+  \textcolor{blue}{解釈はノートになら、書いてもよい。}
+\fi
+};
+
 
 %------------------------------------
-% 付箋ノード No. 7 Do not translate in detail.
+% 付箋ノード No. 9 Do not translate in detail.
 \node[
   draw,
   fill=pink!20,
@@ -515,6 +537,25 @@ A woman longing for kindness tells a false dream to three children, hoping to ex
 \fi
 };
 
+
+%------------------------------------
+% 付箋ノード No. 8 Zenodo QR code: Tale of Ise
+\node[
+%  draw,
+%  fill=blue!20,
+  align=left,
+  rounded corners=3pt,
+  rotate=0,
+%  text width=39cm,
+  align=center,
+  inner sep=10pt,
+  font=\fontsize{58pt}{58pt}\bfseries
+] at ([xshift=-13cm,yshift=-75cm]json.north east)
+{
+\includegraphics[width=6cm]{images/qrZenodoIse.png}
+\includegraphics[width=6cm]{images/qrGithubIse.png}
+\includegraphics[width=6cm]{images/qrGithubPosterJADH2025.png}
+};
 
 %------------------------------------
 
@@ -691,7 +732,7 @@ A woman longing for kindness tells a false dream to three children, hoping to ex
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] (conclusionbox) at ([xshift=4cm, yshift=-100cm]current page.north west) {
+] (conclusionbox) at ([xshift=4cm, yshift=-101.5cm]current page.north west) {
 %  \textbf{\fontsize{40pt}{30pt}\selectfont Results and Conclusion}\\[1em]
   \textcolor{katanoBrown}{
   \begin{itemize}
