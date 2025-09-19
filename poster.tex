@@ -22,10 +22,10 @@
 \showjsonfalse % JSONを表示しない場合はtrue、表示しない場合はfalseに設定
 
 \documentclass{article}
+\usepackage{graphicx}
 \usepackage[paperwidth=84.1cm, paperheight=118.9cm, margin=0cm]{geometry}
 \usepackage{tikz}
 \usepackage{hyperref}
-\usepackage{graphicx}
 \usepackage{fontspec}
 \usetikzlibrary{positioning,shapes.callouts}% 吹き出し用
 \usepackage{listings}
@@ -307,24 +307,24 @@ The University of Osaka
       "gloss": "being moved, she came and lay with him",
       "words": [
         { "word": "(*@\jpfont あはれがり @*)", "gloss": "be.moved" },
-        { "word": "(*@\jpfont て @*)", "gloss": "CVB" },
+        { "word": "(*@\jpfont て @*)", "gloss": "CONJ" },
         { "word": "(*@\jpfont 来 @*)", "gloss": "come" },
-        { "word": "(*@\jpfont て @*)", "gloss": "CVB" },
-        { "word": "(*@\jpfont 寝 @*)", "gloss": "sleep" },
-        { "word": "(*@\jpfont に @*)", "gloss": "PFV" },
+        { "word": "(*@\jpfont て @*)", "gloss": "CONJ" },
+        { "word": "(*@\jpfont 寝 @*)", "gloss": "(*@\textcolor{red}{sleep} @*)" },
+        { "word": "(*@\jpfont に @*)", "gloss": "PERF" },
         { "word": "(*@\jpfont けり @*)", "gloss": "PST" }
       ]
     @*)}
   ],
   "abbreviations": {
-    "CVB": "converb",
+    "CONJ": "conjunctive",
     "PST": "past",
     "LOC": "locative",
     "GEN": "genitive",
     "ACC": "accusative",
     "FOC": "focus",
     "QUOT": "quotative",
-    "PFV": "perfective"
+    "PERF": "perfective"
   },
   "translation-ja-natural": "(*@\jpfont 男が狩りに出かけていたとき、道で出会った三男が馬の口をつかみ、「こんなふうに思っています」と伝えた。 男はそれを聞いて心を動かされ、ある女のもとへ行き、一夜を共にした。 @*)",
   "translation-en-natural": "While the man was out hunting, he met a young man on the road who took hold of his horse’s bridle and said, 'This is how I feel.' Moved by those words, the man went to a certain woman and spent the night with her.",
@@ -337,14 +337,16 @@ The University of Osaka
 \end{lstlisting}
   \end{minipage}
 };
-% キャラクター画像
-\node[left=-6cm of json, yshift=0cm] (char) {
+
+%=================================================
+% キャラクター画像 kaukau what? presenboy01.png
+\node[left=-4cm of json, yshift=2cm] (char01) {
  % \includegraphics[width=10cm]{images/onionboy.png}
   \includegraphics[width=10cm]{images/presenboy01.png}
 };
 % 雲型吹き出し
 \node[
-  right=-6.5cm of char, 
+  right=-6.5cm of char01, 
   yshift=5.6cm,
   rectangle callout,
   rounded corners=15pt, 
@@ -356,8 +358,53 @@ The University of Osaka
   align=center,
   inner sep=20pt,
   font=\fontsize{30pt}{30pt}\bfseries
-  ] at (char.east) {Thus and thus..., what?};
+  ] at (char01.east) {Thus and thus..., what?};
+%--------------------------------------------------
+% キャラクター画像 kaukau what? presenboy02.png
+\node[left=-4cm of json, yshift=33cm] (char02) {
+% % \includegraphics[width=10cm]{images/onionboy.png}
+  \reflectbox{\includegraphics[width=10cm]{images/presenboy02.png}}
+};
+% 雲型吹き出し
+\node[
+  right=-6.5cm of char02, 
+  yshift=3.8cm,
+  rectangle callout,
+  rounded corners=15pt, 
+  callout relative pointer={(-1.0cm,-1.0cm)},
+%  anchor=south east,
+  draw,
+  fill=white,
+  text width=8cm,
+  align=center,
+  inner sep=10pt,
+  font=\fontsize{30pt}{30pt}\bfseries
+  ] at (char02.east) {52 dan, ID 6};
 %------------------------------------
+
+
+% キャラクター画像 kaukau what? otto.png
+\node[left=-26cm of json, yshift=-12cm] (char03) {
+% % \includegraphics[width=10cm]{images/onionboy.png}
+  \reflectbox{\includegraphics[width=4cm]{images/otto.png}}
+};
+% 雲型吹き出し
+\node[
+  right=-6.5cm of char03, 
+  yshift=3.8cm,
+  rectangle callout,
+  rounded corners=15pt, 
+  callout relative pointer={(-1.0cm,-1.0cm)},
+%  anchor=south east,
+  draw,
+  fill=white,
+  text width=8cm,
+  align=center,
+  inner sep=10pt,
+  font=\fontsize{30pt}{30pt}\bfseries
+  ] at (char03.east) {\textcolor{red}{Sleep}? With whom?};
+%------------------------------------
+%==================================
 
 
 \ifshowjson
@@ -487,13 +534,18 @@ The University of Osaka
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] (refbox) at ([xshift=4cm, yshift=-111cm]current page.north west) {
+] (refbox) at ([xshift=4cm, yshift=-110cm]current page.north west) {
 %  \textbf{\fontsize{40pt}{30pt}\selectfont References}\\[1em]
-  - Yamamoto, H. (2025). Process Grammar Model (v1.0.11). Zenodo. 
+  \begin{itemize}
+  \item Yamamoto, H. (2025). Process Grammar Model (v1.0.11). Zenodo. 
   \href{https://doi.org/10.5281/zenodo.15613134}{
     \texttt{https://doi.org/10.5281/zenodo.15613134}
-    \includegraphics[height=0.9cm]{images/zenodo.15613134.png}
-  }
+    \includegraphics[height=0.9cm]{images/zenodo.15613134.png}}
+  \item Yamamoto, H. (2024). The Tales of Ise, Contemporary Japanese and English translation dataset (v1.0.1) [Data set]. Zenodo. 
+    \href{https://doi.org/10.5281/zenodo.13994483}{
+    \texttt{https://doi.org/10.5281/zenodo.13994483}
+    \includegraphics[height=0.9cm]{images/zenodo.13994483.png}}
+  \end{itemize}
 };
 
 \node[
