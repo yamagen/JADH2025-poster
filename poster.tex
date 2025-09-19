@@ -648,6 +648,26 @@ A woman longing for kindness tells a false dream to three children, hoping to ex
   ] at (char04.east) {\textcolor{katanoSlateBlue}{Gloss}? LGR?};
 
 %------------------------------------
+% キャラクター画像 kaukau what? onionboy.png
+\node[left=-40cm of json, yshift=13cm] (char05) {
+\reflectbox{ \includegraphics[width=11cm]{images/onionboy.png}}
+};
+% 雲型吹き出し
+\node[
+  right=-14.5cm of char05, 
+  yshift=1.2cm,
+  rectangle callout,
+  rounded corners=15pt, 
+  callout relative pointer={(1.3cm,-.2cm)},
+%  anchor=south east,
+  draw,
+  fill=white,
+  text width=5cm,
+  align=center,
+  inner sep=20pt,
+  font=\fontsize{30pt}{30pt}\bfseries
+  ] at (char05.east) {Who took it?};
+%--------------------------------------------------
 %==================================
 
 
