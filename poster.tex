@@ -2,12 +2,16 @@
 \ENGtrue % 英語版を使用する場合はtrue、和文版を使用する場合はfalseに設定
 
 \newif\ifhidejson
-\hidejsonfalse % JSONを表示する場合はtrue、表示しない場合はfalseに設定
 \hidejsontrue % JSONを表示しない場合はtrue、表示しない場合は
+\hidejsonfalse % JSONを表示する場合はtrue、表示しない場合はfalseに設定
 
 \newif\ifshowIntro
 \showIntrofalse 
 \showIntrotrue 
+
+\newif\ifshowConclusion
+\showConclusionfalse
+\showConclusiontrue
 
 \newif\ifshowBG
 \showBGfalse 
@@ -246,23 +250,7 @@ The University of Osaka
 \jpfont 
   \begin{minipage}{0.9\textwidth}
 \ifhidejson
-%{
-%  "id": 6,
-%  "text": "(*@\jpfont 狩しありきけるに... @*)"
-%  "text": "Kari shi arikikeru ni iki ahite..."
-%}
-\fi%ifhidejson
-\begin{lstlisting}[language=json]
-{
-  "date": [20240721, 20250214, 20250508],
-  "id": 6,
-  "text": "(*@\jpfont 狩しありきけるにいきあひて、道にて馬の口をとりて、「かうかうなむ思ふ」といひければ、あはれがりて、来て寝にけり。 @*)",
-  "kana": "(*@\jpfont かりしありきけるにいきあひて、みちにてうまのくちをとりて、「かうかうなむおもふ」といひければ、あはれがりて、きてねにけり。 @*)",
-  "koutei": "...",
-  "honkoku": "...",
-  "translation-ja": "(*@\jpfont 狩りをして歩いているときに出会って、道で馬の口をつかんで、「こうこうと思っています」と言ったので、同情して、来て寝た。 @*)",
-  "translation-en": "While out hunting, he encountered [her], and on the road took hold of the horse's bridle, saying, 'This is what I think.' Feeling moved, [she] came and lay down [with him].",
-  "phrase-gloss": [
+  "kana (roman)": "(*@\jpfont かりしありきけるにいきあひて、みちにてうまのくちをとりて、「かうかうなむおもふ」といひければ、あはれがりて、きてねにけり。 @*)",
     {
     "phrase": "(*@\jpfont 狩しありきけるに @*)",
       "gloss": "while he was out hunting",
@@ -274,7 +262,19 @@ The University of Osaka
         { "word": "(*@\jpfont に @*)", "gloss": "when" }
       ]
     },
-    ... (omitted for brevity) ...
+\fi%ifhidejson
+\begin{lstlisting}[language=json]
+{
+  "date": [20240721, 20250214, 20250508],
+  "id": 6,
+  "text": "(*@\jpfont 狩しありきけるにいきあひて、道にて馬の口をとりて、「かうかうなむ思ふ」といひければ、あはれがりて、来て寝にけり。 @*)",
+  "kana (roman)": "karishi ari kikeru ni ikiahite, michi nite uma no kuchi wo torite, 'kaukau namu omofu' to ihikereba, aharegarite, kite ne nikeri",
+  "koutei": "...",
+  "honkoku": "...",
+  "translation-ja": "(*@\jpfont 狩りをして歩いているときに出会って、道で馬の口をつかんで、「こうこうと思っています」と言ったので、同情して、来て寝た。 @*)",
+  "translation-en": "While out hunting, he encountered [her], and on the road took hold of the horse's bridle, saying, 'This is what I think.' Feeling moved, [she] came and lay down [with him].",
+  "phrase-gloss": [
+    ... (omitted for brevity and bravery) ...
     {
       "phrase": "(*@\jpfont 道にて馬の口をとりて @*)",
       "gloss": "on the road took hold of the horse's bridle",
@@ -338,23 +338,25 @@ The University of Osaka
   \end{minipage}
 };
 % キャラクター画像
-\node[left=-5cm of json, yshift=0cm] (char) {
-  \includegraphics[width=10cm]{images/onionboy.png}
+\node[left=-6cm of json, yshift=0cm] (char) {
+ % \includegraphics[width=10cm]{images/onionboy.png}
+  \includegraphics[width=10cm]{images/presenboy01.png}
 };
 % 雲型吹き出し
 \node[
   right=-6.5cm of char, 
-  yshift=3.5cm,
+  yshift=5.6cm,
   rectangle callout,
   rounded corners=15pt, 
-  callout relative pointer={(-1cm,-1cm)},
+  callout relative pointer={(-0.3cm,-.6cm)},
 %  anchor=south east,
   draw,
   fill=white,
-  text width=6cm,
+  text width=5cm,
   align=center,
   inner sep=20pt,
-  ] at (char.east) {Kaukau.., did not say in detail what he told};
+  font=\fontsize{30pt}{30pt}\bfseries
+  ] at (char.east) {Thus and thus..., what?};
 %------------------------------------
 
 
@@ -427,20 +429,20 @@ The University of Osaka
   \includegraphics[trim=0 0 0 0,clip,width=1.2cm]{images/PD-icon.png}
 };
 
-\ifshowjson
+\ifshowConclusion
 % 中央下テキスト
 % results and conclusion
 \node[
   draw=katanoBlue,
-  line width=3pt,
+  line width=5pt,
   inner sep=10mm, 
   anchor=north west,
   text width=75cm,
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=4cm, yshift=-100cm]current page.north west) {
-  \textbf{\fontsize{40pt}{30pt}\selectfont Results and Conclusion}\\[1em]
+] (conclusionbox) at ([xshift=4cm, yshift=-100cm]current page.north west) {
+%  \textbf{\fontsize{40pt}{30pt}\selectfont Results and Conclusion}\\[1em]
   \textcolor{katanoBrown}{
   \begin{itemize}
     % \item 伊勢物語全125段の日英▼逐語訳と自然訳を作成した。
@@ -450,42 +452,59 @@ The University of Osaka
       % \item その上で、句と句の関係を考慮して、自然な現代語訳、あるいは英語になるように、句を組み合わせていった。
     \item On that basis, we combined phrases into a natural modern Japanese or English translation, considering the relationships between phrases.
       % \item そのようにして、原文に忠実でありながら、読み手にとって自然な翻訳を提供することができた。
-    \item In this way, we were able to provide a translation that is faithful to the original text while being natural for the reader.
+%    \item In this way, we were able to provide a translation that is faithful to the original text while being natural for the reader.
       % \item このプロセスを通じて、伊勢物語の理解が深まり、また、逐語訳と自然訳の両方を提供することで、読者が原文の意味を推測する楽しみを損なうことなく、原文の意味を正確に伝えることができた。
-    \item Enhanced understanding of Ise Monogatari
-    \item Effective bilingual translation
-    \item Insights into narrative structures
-    \item Check the flow of the translation process
+%    \item Enhanced understanding of Ise Monogatari
+%    \item Effective bilingual translation
+%    \item Insights into narrative structures
+%    \item Check the flow of the translation process
       % \item 逐語訳の課題: できる限り、しかし完璧ではない。
-    \item Challenges in literal translation: as best as possible, but not perfect.
-    \item Future Work: Expanding to other classical texts such as Tosa Nikki.
+%    \item Challenges in literal translation: as best as possible, but not perfect.
+%    \item Future Work: Expanding to other classical texts such as Tosa Nikki.
       % \item 繰り返し、このプロセスを通じて、翻訳の質を向上させる。
-    \item Repeatedly improve translation quality through this process.
+%    \item Repeatedly improve translation quality through this process.
   \end{itemize}
   }
 };
-\fi%ifshowjson
+\fi%ifshowConclusion
+
+\node[
+  anchor=south west,
+  font=\bfseries\fontsize{40pt}{30pt}\selectfont,
+  text=mydeepblue,
+  fill=cream,
+  inner sep=5pt
+  ] at ([xshift=10mm, yshift=-10mm]conclusionbox.north west) {Conclusion};
 
 %\ifshowjson
 % 中央下右テキスト
 \node[
   draw=katanoBlue,
-  line width=3pt,
+  line width=5pt,
   inner sep=10mm, 
   anchor=north west,
   text width=75cm,
   align=left,
   text=mydeepblue,
   font=\fontsize{30pt}{20pt}\bfseries
-] at ([xshift=4cm, yshift=-111cm]current page.north west) {
-  \textbf{\fontsize{40pt}{30pt}\selectfont References}\\[1em]
+] (refbox) at ([xshift=4cm, yshift=-111cm]current page.north west) {
+%  \textbf{\fontsize{40pt}{30pt}\selectfont References}\\[1em]
   - Yamamoto, H. (2025). Process Grammar Model (v1.0.11). Zenodo. 
   \href{https://doi.org/10.5281/zenodo.15613134}{
     \texttt{https://doi.org/10.5281/zenodo.15613134}
     \includegraphics[height=0.9cm]{images/zenodo.15613134.png}
   }
-
 };
+
+\node[
+  anchor=south west,
+  font=\bfseries\fontsize{40pt}{30pt}\selectfont,
+  text=mydeepblue,
+  fill=cream,
+  inner sep=5pt
+  ] at ([xshift=10mm, yshift=-10mm]refbox.north west) {References};
+
+
 %\fi%ifshowjson
 
 % ロゴ（右下）
