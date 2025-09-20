@@ -1,5 +1,17 @@
 # 🗣 Key Points to Discuss During the Presentation (English, Bullet Points)
 
+
+
+## Source Text
+* Base Text: Saga-bon (held by the National Institute of Japanese Literature)
+* Facsimile: Ise Monogatari from the National Institute of Japanese Literature's Kok
+sho Database
+* Illustrations: From the "Japanese Classical Text Dataset" (held by the National Institute of
+Japanese Literature, etc.)
+* License: Creative Commons License
+* Copyright Holder: Satoshi Nakagawa / 中川聡
+
+
 ## 1. Introduction
 
 * *Ise Monogatari* is a classical work of Japanese literature from the early 10th century Heian period.

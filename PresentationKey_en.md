@@ -6,6 +6,25 @@
 * **Limitations of existing grammar models**: Generative grammar does not adequately explain the speaker's immediate language use.
 * **Proposal of the Process Grammar Model (PGM)**: A translation model that emphasizes the flow of narration and shifts in psychological states.
 
+
+## 出典
+
+* 底本 嵯峨本（国文学研究資料館蔵）
+* 影印 国書データベース 国文学研究資料館蔵『伊勢物語』
+* 挿絵画像 『日本古典籍データセット』（国文研等所蔵）
+* ライセンス クリエイティブ・コモンズ・ライセンス
+* 著作権者 中川聡／Satoshi Nakagawa
+
+
+## Source Text
+* Base Text: Saga-bon (held by the National Institute of Japanese Literature)
+* Facsimile: Ise Monogatari from the National Institute of Japanese Literature's Kok
+sho Database
+* Illustrations: From the "Japanese Classical Text Dataset" (held by the National Institute of
+Japanese Literature, etc.)
+* License: Creative Commons License
+* Copyright Holder: Satoshi Nakagawa / 中川聡
+
 ---
 
 ### ■ Target Text and Translation Methodology
